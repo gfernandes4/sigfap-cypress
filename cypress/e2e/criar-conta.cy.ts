@@ -23,6 +23,7 @@ describe("Criação de conta no sistema", () => {
         cy.get(".css-kh7nmy").click(); //botão "Próximo"
         cy.get(".css-d2d35v").click(); //checkbox "Aceite dos termos de uso"
         cy.get('[data-cy="finalizar"]').click();
+        cy.wait(5000); // IMPORTANTE: Aguarda o cadastro ser processado no servidor antes do teste acabar
         //Conta criada, caso o usuário já exista, o sistema exibe uma mensagem de erro, o usuário não é criado mas o teste finaliza sem erros.
         //De acordo com o cenário que estamos testando, o teste é considerado como aprovado, pois o sistema se comportou conforme o esperado, mesmo que a conta não tenha sido criada devido à existência prévia do usuário. O teste verifica se o sistema lida corretamente com a situação de tentativa de criação de conta com um email já existente, garantindo que a mensagem de erro seja exibida e que o processo de criação de conta seja interrompido.
       });
