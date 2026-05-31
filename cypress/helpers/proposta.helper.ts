@@ -56,3 +56,15 @@ export function irAteInfosComplementares() {
   });
 }
 
+export function irAteDadosPessoais() {
+  irAteInfosComplementares();
+
+  cy.contains("MEI").parent().find("input[type='radio']").click({ force: true });
+  //cy.fixture("submeter-proposta/infos-complementares/infos-complementares").then((dados) => {
+   // cy.get("[data-cy='formularioPropostaInformacaoComplementar.pergunta-200']").type(dados.descricao);
+  //});
+
+  cy.get('[data-cy="next-button"]').click();
+  cy.get('[data-cy="next-button"]').click();
+  cy.wait("@updatePropostaMock");
+}
