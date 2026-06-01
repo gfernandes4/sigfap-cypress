@@ -25,9 +25,21 @@ export function irAteInfosComplementares() {
     body: { id: 9999, titulo: "Teste de submissão de proposta" }
   }).as("getPropostaMock");
 
+  // Intercept and mock evaluations endpoint to prevent 500 with fake ID 9999
+  cy.intercept("GET", "**/api/proposta/minhas-propostas/9999/evaluations", {
+    statusCode: 200,
+    body: []
+  }).as("getEvaluationsMock");
+
+  // Intercept and mock proposal submission to prevent 500 with fake ID 9999
+  cy.intercept("PUT", "**/api/proposta/9999/submeter", {
+    statusCode: 200,
+    body: { id: 9999, status: "SUBMETIDA" }
+  }).as("submeterPropostaMock");
+
 
   cy.visit("/");
-  
+
   // Navigate to proposal creation
   cy.get(".css-18juej0.ekicsf50").first().click();
   cy.contains("Edital 2026-0001 Sig Cypress")
@@ -41,7 +53,7 @@ export function irAteInfosComplementares() {
   cy.fixture("submeter-proposta/infos-iniciais/infos-iniciais").then((dados) => {
     // Append a random number to the title to ensure uniqueness on every run
     const uniqueTitle = `${dados.titulo} ${Math.floor(Math.random() * 100000)}`;
-    
+
     cy.get('[data-cy="titulo"]').type(uniqueTitle);
     cy.get('[data-cy="search-tipo-evento-id"]').click();
     cy.contains(dados.tipo_evento).click();
@@ -49,7 +61,7 @@ export function irAteInfosComplementares() {
     cy.contains(dados.estado_execucao).click();
     cy.get('[data-cy="search-municipio-execucao-evento"]').click();
     cy.contains(dados.municipio_execucao).click();
-    
+
     // Proceed to Step 2 (Infos Complementares)
     cy.get('[data-cy="next-button"]').click();
     cy.wait("@savePropostaMock");
@@ -61,7 +73,7 @@ export function irAteDadosPessoais() {
 
   cy.contains("MEI").parent().find("input[type='radio']").click({ force: true });
   //cy.fixture("submeter-proposta/infos-complementares/infos-complementares").then((dados) => {
-   // cy.get("[data-cy='formularioPropostaInformacaoComplementar.pergunta-200']").type(dados.descricao);
+  // cy.get("[data-cy='formularioPropostaInformacaoComplementar.pergunta-200']").type(dados.descricao);
   //});
 
   cy.get('[data-cy="next-button"]').click();
