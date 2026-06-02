@@ -1,0 +1,14 @@
+{
+  "valido": {
+    "cep": "01001000",
+    "bairro": "Sé",
+    "logradouro": "Praça da Sé",
+    "estado": "São Paulo",
+    "numero": "123",
+    "municipio": "São Paulo",
+    "complemento": "Apto 45"
+  },
+  "invalido": {
+    "cepFormato": "01001-XYZ"
+  }
+}

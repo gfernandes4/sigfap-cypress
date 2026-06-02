@@ -1,0 +1,15 @@
+{
+  "valido": {
+    "nome": "João da Silva Teste",
+    "dataNascimento": "15/05/1990",
+    "pais": "Brasil",
+    "cpf": "52998224725",
+    "cpfInvalido": "11111111111"
+  },
+  "invalido": {
+    "nomeExtenso": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  "estrangeiro": {
+    "pais": "Argentina"
+  }
+}
