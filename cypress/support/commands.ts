@@ -47,7 +47,7 @@ Cypress.Commands.add("navigateToProfile", () => {
 Cypress.Commands.add("selectAutocomplete", (inputSelector, optionText) => {
   // Usa {selectAll}{backspace} em vez de .clear() e {enter} para selecionar
   // O wait garante que a busca assíncrona traga os resultados antes do Enter
-  cy.get(inputSelector)
+  cy.get(inputSelector).first()
     .click({ force: true })
     .type('{selectAll}{backspace}' + optionText, { force: true })
     .wait(1000)
