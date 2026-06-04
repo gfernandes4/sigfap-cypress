@@ -1,0 +1,130 @@
+name: 📋 Divergência de Requisito
+description: Reportar divergência entre o documento de requisitos e a interface implementada
+title: "[DIVERG] "
+labels: ["divergence", "requirements"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este template quando identificar que a interface implementada **não corresponde** ao especificado no documento de requisitos do Novo-SIG.
+        Exemplos típicos- campos marcados como obrigatórios na interface mas opcionais no requisito (ou vice-versa), campos ausentes, regras de validação diferentes.
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de divergência
+      options:
+        - Campo obrigatório na interface mas opcional no requisito
+        - Campo opcional na interface mas obrigatório no requisito
+        - Campo presente na interface mas não no requisito
+        - Campo presente no requisito mas não na interface
+        - Regra de validação diferente do requisito
+        - Comportamento condicional diferente do requisito
+        - Outro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severidade
+    attributes:
+      label: Severidade
+      options:
+        - Crítica (impede submissão ou causa inconsistência de dados)
+        - Alta (afeta validação de regra de negócio)
+        - Média (afeta UX mas não bloqueia)
+        - Baixa (apenas marcação visual de obrigatoriedade ausente/excedente)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      options:
+        - P0 (corrigir imediatamente)
+        - P1 (corrigir nesta sprint)
+        - P2 (corrigir quando possível)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: jornada
+    attributes:
+      label: Jornada afetada
+      options:
+        - Cadastramento
+        - Proposta
+        - Termo de Contratação
+    validations:
+      required: true
+
+  - type: input
+    id: requisito
+    attributes:
+      label: ID do requisito divergente
+      description: ID exato da seção do documento de requisitos (ex- 7.1.1.1, 2.2.1, 7.2.2.4)
+      placeholder: "Ex- 7.1.1.1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição clara da divergência
+      description: Explique objetivamente onde está a divergência. Cite literalmente o trecho do requisito quando possível.
+      placeholder: |
+        O requisito 7.1.1.1 lista Título do Projeto, Duração em Meses, Instituição Executora, Unidade Executora e Grande Área como obrigatórios.
+        Na interface HML, os campos "Tipo de Evento", "Estado de Execução" e "Município de Execução" aparecem como obrigatórios (marcados com *), mas não constam como obrigatórios no requisito.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requisito_texto
+    attributes:
+      label: Trecho do requisito documentado
+      description: Cole o trecho exato do documento que define o comportamento esperado.
+      placeholder: "Ex- 'Título do Projeto- Campo do tipo texto, máximo de 128 caracteres, obrigatório.'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: interface_texto
+    attributes:
+      label: Comportamento observado na interface
+      description: Descreva o que a interface está apresentando.
+      placeholder: "Ex- Na interface, o campo Título do Projeto aceita o avanço para o próximo step mesmo quando vazio."
+    validations:
+      required: true
+
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir / verificar
+      placeholder: |
+        1. Acessar o módulo de Proposta no ambiente HML
+        2. Verificar os campos apresentados para preenchimento
+        3. Comparar com o documento de requisitos seção 7.1.1.1
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidência
+      description: Anexe imagens da interface E do trecho do documento de requisitos para facilitar a comparação.
+      placeholder: "Anexe imagens da interface e do documento de requisitos."
+    validations:
+      required: true
+
+  - type: input
+    id: ct
+    attributes:
+      label: Caso de Teste relacionado
+      description: ID do CT que detectou a divergência (se aplicável)
+      placeholder: "Ex- CT-PROP-US02-02"
+
+  - type: textarea
+    id: notas
+    attributes:
+      label: Observações adicionais
+      description: Hipóteses sobre a causa (ex- requisito desatualizado, implementação anterior à publicação do requisito, etc.)
