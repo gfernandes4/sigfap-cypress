@@ -48,7 +48,6 @@ Cypress.Commands.add("loginSession", (email, password) => {
     }
   );
 });
-
 // Navega até a página de edição de perfil (Dados Pessoais)
 Cypress.Commands.add("navigateToProfile", () => {
   // Abre o menu do usuário clicando no botão com avatar (figure com as iniciais)
