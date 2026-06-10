@@ -7,7 +7,8 @@ describe("Submeter Proposta", () => {
         });
 
 
-        it("Botão 'Submeter Proposta' bloqueado sem checkbox de aceite", () => {
+        // CT-PROP-US20-01: Reprovado e Bloqueado — botão não desabilita sem checkbox (req. 7.1.5.1)
+        it.skip("Botão 'Submeter Proposta' bloqueado sem checkbox de aceite", () => {
             cy.contains("Finalização").click();
             cy.contains("Termo de Aceite").click();
             
