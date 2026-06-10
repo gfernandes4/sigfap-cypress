@@ -68,3 +68,17 @@ export function irAteDadosPessoais() {
   cy.get('[data-cy="next-button"]').click();
   cy.wait("@updatePropostaMock");
 }
+
+export function irAteEndereco() {
+  irAteDadosPessoais();
+
+  cy.fixture("submeter-proposta/dados-pessoais/dados-pessoais").then((dadosPessoais) => {
+    cy.get("[data-cy='criadoPor.nome']").clear().type(dadosPessoais.nome);
+    cy.get("[data-cy='criadoPor.dataNascimento']").clear({ force: true }).type(dadosPessoais.dataNascimento, { force: true });
+    cy.get("[data-cy='pais-id']").click();
+    cy.contains(dadosPessoais.pais).click();
+
+    cy.get('[data-cy="next-button"]').click();
+    cy.wait("@updatePropostaMock");
+  });
+}
