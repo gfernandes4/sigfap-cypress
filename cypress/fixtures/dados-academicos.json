@@ -4,6 +4,13 @@
     "unidade": "FACOM",
     "nivelAcademico": "Doutorado",
     "lattes": "http://lattes.cnpq.br/1234567890123456",
-    "linkedin": "https://linkedin.com/in/joao-teste"
+    "linkedin": "https://linkedin.com/in/joao-teste",
+    "grandeArea": "Ciências Exatas e da Terra",
+    "area": "Ciência da Computação",
+    "subarea": "Sistemas de Computação"
+  },
+  "invalido": {
+    "lattesFormato": "um-texto-qualquer-lattes",
+    "linkedinFormato": "linkedin.com/in/joao"
   }
 }
