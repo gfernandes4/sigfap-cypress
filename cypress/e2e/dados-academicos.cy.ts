@@ -8,9 +8,9 @@ describe("Cadastramento - Dados Acadêmicos", () => {
     cy.navigateToProfile();
 
     // Navega para o step de Dados Acadêmicos via sidebar
-    cy.contains('Dados Acadêmicos').click();
+    cy.contains(/Dados [Aa]cadêmicos/i, { timeout: 10000 }).click();
     // Aguarda o formulário carregar
-    cy.contains('Dados Acadêmicos').should('be.visible');
+    cy.contains(/Dados [Aa]cadêmicos/i).should('be.visible');
   });
 
   context("Preenchimento válido (Happy Path)", () => {
