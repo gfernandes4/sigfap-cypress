@@ -16,7 +16,7 @@ describe("Submeter proposta", () => {
             cy.get("[data-cy='criadoPor.documento']").should("be.disabled");
             cy.get('[data-cy="next-button"]').click();
             
-            cy.contains("Nome é obrigatório").should("be.visible");
+            cy.contains("Mínimo de 1 caracteres").should("be.visible");
         });
     });
 
