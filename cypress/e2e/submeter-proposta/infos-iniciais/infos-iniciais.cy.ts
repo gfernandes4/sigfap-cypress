@@ -5,9 +5,9 @@ describe("Submeter proposta", () => {
         beforeEach(() => {
             cy.visit("/");
             cy.typeLogin("gabriel.fernandes.13@sig.com", "@Dev12345");
-            cy.get(".css-18juej0.ekicsf50").first().click();
+            cy.get('[data-cy="editais-ver-mais"]').click();
             cy.contains("Edital 2026-0001 Sig Cypress")
-                .closest(".e1mpo2wc53")
+                .closest("div")
                 .find("button")
                 .first()
                 .click({ force: true });
