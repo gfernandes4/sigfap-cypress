@@ -64,11 +64,10 @@ Ver [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) para detalhes sobre convenç�
 
 ## Escopo dos testes
 
-51 casos de teste previstos no plano, focados em campos obrigatórios das jornadas:
+46 casos de teste previstos no plano, focados em campos obrigatórios das jornadas:
 
-- **Cadastramento** (14 CTs) — criação de conta, dados pessoais, dados acadêmicos
-- **Submissão de Proposta** (21 CTs) — informações iniciais, dados pessoais do coordenador, endereço, termo de aceite
-- **Termo de Contratação** (16 CTs)
+- **Cadastramento** — criação de conta, dados pessoais, endereço, dados acadêmicos
+- **Submissão de Proposta** — informações iniciais, informações complementares, dados pessoais do coordenador, endereço, termo de aceite
 
 Ver [`progress.md`](progress.md) para o estado atual de implementação e merges.
 
