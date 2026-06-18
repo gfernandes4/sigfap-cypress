@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentação do projeto
+    url: https://github.com/gfernandes4/sigfap-cypress/blob/main/CONTRIBUTING.md
+    about: Antes de abrir uma issue, consulte o CONTRIBUTING.md para entender o fluxo de contribuição, convenções de commit e branchflow.

@@ -1,0 +1,148 @@
+name: 🐛 Bug Report
+description: Reportar um defeito funcional ou de interação encontrado durante os testes
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar um defeito. Preencha as seções abaixo com o máximo de detalhes possível.
+        Lembre-se: anexar evidência visual (print, vídeo do Cypress, log) é essencial.
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de defeito
+      description: Qual a natureza do defeito encontrado?
+      options:
+        - Funcional (regra de negócio incorreta, validação ausente)
+        - Interação (botão não responde, formulário trava, etc.)
+        - Visual (elemento mal posicionado, falta destaque obrigatório, etc.)
+        - Performance (lentidão excessiva, timeout)
+        - Outro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severidade
+    attributes:
+      label: Severidade
+      description: Impacto técnico do defeito
+      options:
+        - Crítica (bloqueia o fluxo, impede submissão)
+        - Alta (afeta funcionalidade principal mas tem contorno)
+        - Média (afeta funcionalidade secundária)
+        - Baixa (cosmético, sem impacto funcional)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      description: Urgência da correção
+      options:
+        - P0 (corrigir imediatamente)
+        - P1 (corrigir nesta sprint)
+        - P2 (corrigir quando possível)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: jornada
+    attributes:
+      label: Jornada afetada
+      options:
+        - Cadastramento
+        - Proposta
+        - Termo de Contratação
+        - Não se aplica / Múltiplas
+    validations:
+      required: true
+
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito relacionado
+      description: ID do requisito da seção correspondente (ex- 2.2.1, 7.1.1.1, 7.2.2.3). Deixe em branco se não houver requisito direto relacionado.
+      placeholder: "Ex- 7.1.1.1 Informações Iniciais"
+
+  - type: input
+    id: ct
+    attributes:
+      label: Caso de Teste relacionado
+      description: ID do CT que detectou o bug, se aplicável (ex- CT-PROP-US02-08)
+      placeholder: "Ex- CT-PROP-US02-08"
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição clara do defeito
+      description: O que aconteceu? Seja específico e direto.
+      placeholder: "Ao clicar em Próxima Etapa com o campo Título vazio, o sistema não exibe mensagem de erro e avança normalmente para o próximo step."
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamento esperado
+      description: O que deveria acontecer, conforme o requisito ou expectativa razoável?
+      placeholder: "O sistema deveria bloquear o avanço e exibir uma mensagem indicando que o campo Título é obrigatório."
+    validations:
+      required: true
+
+  - type: textarea
+    id: observado
+    attributes:
+      label: Comportamento observado
+      description: O que realmente aconteceu?
+      placeholder: "O sistema avançou para o próximo step sem qualquer validação ou mensagem."
+    validations:
+      required: true
+
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reprodução
+      description: Lista numerada de passos para reproduzir o defeito.
+      placeholder: |
+        1. Acessar o sistema HML como Coordenador
+        2. Abrir um edital vigente e clicar em "Criar Proposta"
+        3. Deixar o campo "Título do Projeto" vazio
+        4. Preencher os demais campos obrigatórios
+        5. Clicar em "Próxima Etapa"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidência (print, vídeo, log)
+      description: Anexe imagens arrastando para esta caixa, ou cole links de vídeos/logs. Para falhas do Cypress, anexe o screenshot/vídeo gerado em `cypress/screenshots/` ou `cypress/videos/`.
+      placeholder: "Cole imagens, vídeos ou logs aqui."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ambiente
+    attributes:
+      label: Ambiente
+      options:
+        - HML (Homologação)
+        - Local
+        - Outro
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Navegador e versão (se aplicável)
+      placeholder: "Ex- Chrome 120, Electron (padrão Cypress)"
+
+  - type: textarea
+    id: notas
+    attributes:
+      label: Observações adicionais
+      description: Qualquer informação extra que ajude a entender ou priorizar o defeito.
